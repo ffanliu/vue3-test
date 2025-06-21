@@ -1,6 +1,16 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import {useRouter, useRoute} from "vue-router"
+
+const router = useRouter() //表示跳转
+const route = useRoute() //表示获取当前路由
+const jumpDemo3 = () => {
+  router.push({name: 'demo3', query:{id: 66}})
+}
+const option = {
+  name: 'demo3'
+}
 </script>
 
 <template>
@@ -9,7 +19,8 @@ import HelloWorld from './components/HelloWorld.vue'
 
     <div class="wrapper">
       <HelloWorld msg="哈哈哈哈!" />
-
+      <button @click="jumpDemo3">跳转到demo3</button>
+      <RouterLink :to="option">demo3</RouterLink>
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>

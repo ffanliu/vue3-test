@@ -1,5 +1,13 @@
 <script setup>
 import {ref} from "vue";
+import {useRouter, useRoute} from "vue-router"
+
+const router = useRouter() //表示跳转
+const route = useRoute() //表示获取当前路由
+const queryValue = route.query
+//vue组件
+//可以当页面的组件：有路由
+//挂在页面的组件：没有路由
 
 const age = 20;
 const name = '刘卓凡';
@@ -7,6 +15,10 @@ const name1 = '<span style = "color: blue">hello</span>'
 const flag = 1;
 const score = 44;
 const id_value = 'ccccc'
+const person = ref({
+  name: '张三',
+  age: 20
+})
 const arr = ref([1,2,3,4])
 const showHhh = () => {
   console.info(inputValue.value)
@@ -40,6 +52,7 @@ function zzz() {
 <!--  v-on 表示给标签增加事件, 事件的本质是方法，需要调用方法 缩写@-->
 <!--  v-model 双向绑定表单元素的值-->
 <template>
+  传过来的参数：{{queryValue.id}}
   <h1>{{name.length}}</h1>
   <h1>{{name}}</h1>
   <h1>{{name.length > 0}}</h1>
